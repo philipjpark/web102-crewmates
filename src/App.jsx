@@ -4,8 +4,10 @@ import { useRoutes } from 'react-router-dom'
 import ReadPosts from './pages/ReadPosts'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { supabase } from './client'
+import SideNav from "./components/sideNav";
+
 
 
 const App = () => {
@@ -25,6 +27,7 @@ const App = () => {
 
     fetchPosts();
   }, []);
+  
 
   // Sets up routes
   let element = useRoutes([
@@ -45,13 +48,15 @@ const App = () => {
   return ( 
 
     <div className="App">
+      <div className="whole-page">
+        <SideNav /> 
 
       <div className="header">
         <h1>Crewmate Creator</h1>
-        <Link to="/"><button className="headerBtn">Crewmate Gallery</button></Link>
-        <Link to="/new"><button className="headerBtn">Create Crewmate</button></Link>
       </div>
         {element}
+    </div>
+
     </div>
 
   );
